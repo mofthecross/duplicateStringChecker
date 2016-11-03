@@ -5,13 +5,19 @@ export default class Input extends Component {
   constructor(props) {
     super(props)
       this.state = {
-        input: 'sendtoOUtput'
+        input: '',
+        output: ''
       }
   }
   render() {
     return (
       <div>
-        <h1>this is an input</h1>
+      <div>
+        <input type='text'
+               placeholder= 'type your string here'>
+       </input>
+       <button>check</button>
+      </div>
         <Output entry={this.state.sendtoOutput}/>
       </div>
     );
