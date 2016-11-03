@@ -9,16 +9,19 @@ export default class Input extends Component {
         output: ''
       }
       this.handleChange = this.handleChange.bind(this);
+      this.handleCheckButton = this.handleCheckButton.bind(this);
   }
 
   handleChange(event) {
-    console.log(event);
     this.setState({
       input: event.target.value
     });
   }
 
-
+  handleCheckButton(event) {
+    let findDuplicate = this.state.input;
+    this.setState({output: findDuplicate , input: ''})
+  }
 
   render() {
     return (
@@ -29,7 +32,7 @@ export default class Input extends Component {
                value={this.state.input}
                onChange={this.handleChange}>
        </input>
-       <button>check</button>
+       <button onClick={this.handleCheckButton}>check</button>
       </div>
         <Output entry={this.state.output}/>
       </div>
