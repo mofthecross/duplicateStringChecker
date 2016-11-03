@@ -41,9 +41,16 @@ const findDuplicatedSubstring = inputString => {
     }
 }
 
+const countDuplicate =(inputString, subString)=> {
+    let found = inputString.match(new RegExp(subString, "g"));
+    return found ? found.length : 0;
+}
 
-/* TEST 
+
+
+
+
 console.log('should return bbbaaa for bbbaacbbbaa: ', 'bbbaa' === findDuplicatedSubstring('bbbaacbbbaa')) //true
 console.log('should return aba for abbab', 'ab' === findDuplicatedSubstring('abbab')) //true
 console.log(findDuplicates('bbbaacbbbaa'))
-*/
+console.log(countDuplicate('bbbaacbbbaa', findDuplicatedSubstring('bbbaacbbbaa')))
