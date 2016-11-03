@@ -1,56 +1,54 @@
-const findDuplicates = string => {
-    let map = {};
-    let resultSets = new Set();
+import React from 'react';
 
-    for (let i = 0; i < string.length; i++) {
-        if (string[i] in map) {
-            map[string[i]]++;
-        } else {
-            map[string[i]] = 1;
-        }
-    }
+export const findDuplicates = inputString => {
+  let resultSet = new Set();
+  let nonDuplicateSet = new Set(inputString.split('')); //remove duplicate
 
-    for (let key in map) {
-        if (map[key] !== 1) {
-            resultSets.add([key, map[key]]);
-        }
+  for (let item of nonDuplicateSet) {
+    let duplicateCount = countDuplicate(inputString, item);
+    if (duplicateCount > 1) {
+      resultSet.add([item, duplicateCount]);
     }
-    return [...resultSets];
+  }
+
+  let longestRepeated = findDuplicatedSubstring(inputString); //get longest repeated substring
+  if (longestRepeated.length > 1) {
+    let duplicateCount = countDuplicate(inputString, longestRepeated);
+    resultSet.add([longestRepeated, duplicateCount]);
+  }
+
+  return [...resultSet];
 }
 
 const findDuplicatedSubstring = inputString => {
-    inputString = inputString.split(" ").join(",");
-    let longestSubstringDuplicate = "";
+  inputString = inputString.split(" ").join(",");
+  let longestSubstringDuplicate = "";
 
-    for (let i = inputString.length; i > 0; i--) {
-        for (let j = 0; j < inputString.length - i; j++) {
-            //get substring starting from first and last element
-            var currentSubString = inputString.substring(j, j + i);
-            //if indexof currentSubString exists somewhere else
-            if (inputString.indexOf(currentSubString, j + 1) !== -1) {
-                //store currentSubString to longestSubstringDuplicate
-                longestSubstringDuplicate = currentSubString;
-                return longestSubstringDuplicate;
-            }
-        }
-        //if no duplicate is found after one full interation
-        if (longestSubstringDuplicate.length) {
-            //break out of the loop and return;
-            return longestSubstringDuplicate;
-        }
+  for (let i = inputString.length; i > 0; i--) {
+    for (let j = 0; j < inputString.length - i; j++) {
+
+      //get substring starting from first and last element
+      let currentSubString = inputString.substring(j, j + i);
+
+      //if indexof currentSubString exists somewhere else
+      if (inputString.indexOf(currentSubString, j + 1) !== -1) {
+
+        //store currentSubString to longestSubstringDuplicate and break;
+        longestSubstringDuplicate = currentSubString;
+        break;
+      }
     }
+
+    //if no duplicate is found after one full interation
+    if (longestSubstringDuplicate.length) {
+      //break out of the loop and return
+      break;
+    }
+  }
+  return longestSubstringDuplicate;
 }
 
-const countDuplicate =(inputString, subString)=> {
-    let found = inputString.match(new RegExp(subString, "g"));
-    return found ? found.length : 0;
+const countDuplicate = (inputString, subString) => {
+  let found = inputString.match(new RegExp(subString, "g"));
+  return found ? found.length : 0;
 }
-
-
-
-
-
-console.log('should return bbbaaa for bbbaacbbbaa: ', 'bbbaa' === findDuplicatedSubstring('bbbaacbbbaa')) //true
-console.log('should return aba for abbab', 'ab' === findDuplicatedSubstring('abbab')) //true
-console.log(findDuplicates('bbbaacbbbaa'))
-console.log(countDuplicate('bbbaacbbbaa', findDuplicatedSubstring('bbbaacbbbaa')))
