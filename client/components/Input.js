@@ -29,17 +29,18 @@ export default class Input extends Component {
 
   render() {
     return (
-      <div className='inputComponent'>
-        <div>
-        <input  type='text'
+      <div className='inputContainer'>
+        <div className='inputBox'>
+        <input className="textField"
+                type='text'
                 placeholder= 'type your string here'
                 value={this.state.input}
                 onChange={this.handleChange}></input>
-          <button onClick={this.handleCheckButton}>check</button>
-          <h2>Duplicate String Checker </h2>
-        </div>
+          <button  className='button' onClick={this.handleCheckButton}>Check</button>
 
-        <div>
+        </div>
+        <h2>Duplicate String Checker </h2>
+        <div className='outputContainer'>
         { this.state.output.map(entry=>{
           return <Output key={entry[0]}
                          value={entry} />

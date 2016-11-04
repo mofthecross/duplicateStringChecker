@@ -1,0 +1,71 @@
+#container {
+    height: 550px;
+    max-width: 600px;
+    padding: 30px 0;
+    border-radius: 20px;
+    margin: auto;
+}
+
+.inputContainer {
+    border: solid;
+    border-color: grey;
+    margin: auto;
+    padding: 20px;
+}
+
+.inputBox {}
+
+.textField {
+    border: solid;
+    border-color: grey;
+    margin: 20px auto;
+    height: 30px;
+    width: 200px;
+    padding: 5px;
+}
+
+.button {
+    background-color: #d3d3d3;
+    border: solid;
+    border-color: grey;
+    border-radius: 10px;
+    margin-left: 10px;
+    width: 70px;
+    height: 40px;
+    padding: 2px;
+    cursor: pointer;
+    text-decoration-color: grey;
+}
+
+.outputContainer {}
+
+.outputbox {
+    max-width: 85px;
+    background-color: grey;
+    padding: 10px;
+    margin: 20px;
+}
+
+.character {
+    width: 50px;
+    height: 40px;
+    border-radius: 10px;
+    align-items: center;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    margin: 10px;
+}
+
+.characterCount {
+    width: 50px;
+    height: 20px;
+    border-radius: 10px;
+    align-items: center;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    margin: 10px;
+}
