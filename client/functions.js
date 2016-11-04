@@ -55,7 +55,6 @@ const countDuplicate = (inputString, subString) => {
 }
 
 export const alphaNumericCheck = (inputString) => {
-  //let allowed = /^\w+$/
   var valid = new RegExp("^[a-zA-Z0-9]");
   return valid.test(inputString);
 }
