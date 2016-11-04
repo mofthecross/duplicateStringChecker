@@ -13,8 +13,6 @@
     padding: 20px;
 }
 
-.inputBox {}
-
 .textField {
     border: solid;
     border-color: grey;
@@ -26,27 +24,30 @@
 
 .button {
     background-color: #d3d3d3;
-    border: solid;
-    border-color: grey;
     border-radius: 10px;
     margin-left: 10px;
     width: 70px;
-    height: 40px;
+    height: 45px;
     padding: 2px;
     cursor: pointer;
     text-decoration-color: grey;
 }
 
-.outputContainer {}
+#outputContainer {
+    display: flex;
+    flex-flow: row wrap;
+    overflow: auto;
+}
 
-.outputbox {
-    max-width: 85px;
-    background-color: grey;
-    padding: 10px;
+#outputContainer .outputbox {
+    max-width: 80px;
+    background-color: #d3d3d3;
     margin: 20px;
+    justify-content: center;
 }
 
 .character {
+    max-width: 80px;
     width: 50px;
     height: 40px;
     border-radius: 10px;
