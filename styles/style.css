@@ -10,7 +10,7 @@
     border: solid;
     border-color: grey;
     margin: auto;
-    padding: 20px;
+    padding: 30px;
 }
 
 .textField {
@@ -18,17 +18,19 @@
     border-color: grey;
     margin: 20px auto;
     height: 30px;
-    width: 200px;
+    resize: horizontal;
+    overflow: auto;
+    width: 390px;
     padding: 5px;
 }
 
 .button {
     background-color: #d3d3d3;
     border-radius: 10px;
-    margin-left: 10px;
+    margin-left: 25px;
     width: 70px;
     height: 45px;
-    padding: 2px;
+    padding: 5px;
     cursor: pointer;
     text-decoration-color: grey;
 }

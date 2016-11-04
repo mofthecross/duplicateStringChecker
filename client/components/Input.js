@@ -37,7 +37,7 @@ export default class Input extends Component {
         <div className='inputBox'>
         <input className="textField"
                 type='text'
-                placeholder= 'type your string here'
+                placeholder= 'Type your string here'
                 value={this.state.input}
                 onChange={this.handleChange}></input>
           <button  className='button' onClick={this.handleCheckButton}>Check</button>
