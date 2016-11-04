@@ -4,7 +4,7 @@ export let Output = function(props) {
   return (
     <div className='outputbox'>
       <div className='character'>
-        {props.value[0].toUpperCase()}
+        {props.value[0]}
       </div>
       <div className='characterCount'>
         {props.value[1]}

@@ -21,7 +21,8 @@ export default class Input extends Component {
 
   handleCheckButton(event) {
     if (!alphaNumericCheck(this.state.input)) {
-      this.setState({input: '', output: []});
+      alert('only alphanumeric allowed!')
+      this.setState({input: '', output:[]});
     } else {
       let duplicate = findDuplicates(this.state.input.toUpperCase());
       this.setState({
