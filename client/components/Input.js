@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Output } from './Output';
-import { findDuplicates } from '../functions'
+import { findDuplicates, alphaNumericCheck } from '../functions'
 
 export default class Input extends Component {
   constructor(props) {
@@ -20,11 +20,15 @@ export default class Input extends Component {
   }
 
   handleCheckButton(event) {
-    let duplicate = findDuplicates(this.state.input);
-    this.setState({
-      output: duplicate,
-      input: ''
-    })
+    if (!alphaNumericCheck(this.state.input)) {
+      this.setState({input: '', output: []});
+    } else {
+      let duplicate = findDuplicates(this.state.input.toUpperCase());
+      this.setState({
+        output: duplicate,
+        input: ''
+      });
+    }
   }
 
   render() {
@@ -40,12 +44,10 @@ export default class Input extends Component {
 
         </div>
         <h2>Duplicate String Checker </h2>
-        <div className='outputContainer'>
-        { this.state.output.map(entry=>{
-          return <Output key={entry[0]}
-                         value={entry} />
-                       })
-                     }
+        <div id='outputContainer'>
+          { this.state.output.map(entry=>{
+            return <Output key={entry[0]}
+                           value={entry} /> })}
         </div>
       </div>
     )
