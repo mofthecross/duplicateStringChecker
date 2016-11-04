@@ -20,7 +20,7 @@ export const findDuplicates = inputString => {
 
   return [...resultSet];
 }
-
+// TODO: Optimize time complexity by implementing Suffix tree;
 const findDuplicatedSubstring = inputString => {
   inputString = inputString.split(" ").join(",");
   let longestSubstringDuplicate = "";
