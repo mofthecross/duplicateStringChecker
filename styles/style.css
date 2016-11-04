@@ -1,6 +1,6 @@
 #container {
     height: 550px;
-    max-width: 600px;
+    max-width: 400px;
     padding: 30px 0;
     border-radius: 20px;
     margin: auto;
@@ -20,7 +20,7 @@
     height: 30px;
     resize: horizontal;
     overflow: auto;
-    width: 390px;
+    width: 200px;
     padding: 5px;
 }
 
@@ -44,7 +44,7 @@
 #outputContainer .outputbox {
     max-width: 80px;
     background-color: #d3d3d3;
-    margin: 20px;
+    margin: 15px;
     justify-content: center;
 }
 
