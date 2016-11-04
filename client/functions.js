@@ -2,19 +2,20 @@ import React from 'react';
 
 export const findDuplicates = inputString => {
   let resultSet = new Set();
-  let nonDuplicateSet = new Set(inputString.split('')); //remove duplicate
 
+  let longestRepeated = findDuplicatedSubstring(inputString);
+  //check if longestRepeated has more than 1 length and consists of atleast 2 different characters;
+  if (longestRepeated.length > 1 && longestRepeated[0] !== longestRepeated[longestRepeated.length - 1] ) {
+    let duplicateCount = countDuplicate(inputString, longestRepeated);
+    resultSet.add([longestRepeated, duplicateCount]);
+  }
+
+  let nonDuplicateSet = new Set(inputString.split('')); //remove duplicate
   for (let item of nonDuplicateSet) {
     let duplicateCount = countDuplicate(inputString, item);
     if (duplicateCount > 1) {
       resultSet.add([item, duplicateCount]);
     }
-  }
-
-  let longestRepeated = findDuplicatedSubstring(inputString); //get longest repeated substring
-  if (longestRepeated.length > 1) {
-    let duplicateCount = countDuplicate(inputString, longestRepeated);
-    resultSet.add([longestRepeated, duplicateCount]);
   }
 
   return [...resultSet];
@@ -51,4 +52,10 @@ const findDuplicatedSubstring = inputString => {
 const countDuplicate = (inputString, subString) => {
   let found = inputString.match(new RegExp(subString, "g"));
   return found ? found.length : 0;
+}
+
+export const alphaNumericCheck = (inputString) => {
+  //let allowed = /^\w+$/
+  var valid = new RegExp("^[a-zA-Z0-9]");
+  return valid.test(inputString);
 }
